@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes">
+    <title>AppWorks School Week_01 Assignment</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header clearfix">
+            <a href="#" class="logo">Logo</a>
+            <a href="#" class="menu-toggle" id="menu"><span></span></a>
+            <ul role="navigation" class="nav hidden" id="nav">
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="welcome_message">
+                <h1  id="welcome_message" onclick="show_text()">Welcome to AppWorks School</h1>
+            </div>
+            <h2 class=" vice_title">Section Title</h2>
+            <ul class="box clearfix">
+                <li>Content Box 1</li>
+                <li>Content Box 2</li>
+                <li>Content Box 3</li>
+                <li>Content Box 4</li>
+            </ul>
+            <a href="#" class="button" id="showHide">Call to Action</a>
+            <ul class="box clearfix hide" id="hide">
+                <li>Content Box 1</li>
+                <li>Content Box 2</li>
+                <li>Content Box 3</li>
+                <li>Content Box 4</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    //change text
+    function show_text() {
+        document.getElementById("welcome_message").innerHTML = "Have a Good Time!";
+    }
+
+    //call to action
+    document.getElementById("showHide").onclick = function() {
+        var theDiv = document.getElementById("hide");
+        if (theDiv.style.display = 'block') {
+            theDiv.style.display == 'none';
+        } else {
+            theDiv.style.display = 'block';
+        }
+    }
+
+    //call to action
+    // document.getElementById("showHide").onclick = function() {
+    //     var theDiv = document.getElementById("hide");
+    //     if (theDiv.style.display == 'none') {
+    //         theDiv.style.display = 'block';
+    //     } else {
+    //         theDiv.style.display = 'none';
+    //     }
+    // }
+
+
+
+    document.getElementById("menu").onclick = function() {
+        this.classList.toggle("on");
+        document.getElementById("nav").classList.toggle("on");
+        document.getElementById("nav").classList.toggle("hidden");
+    }
+    </script>
+</body>
+
+</html>
