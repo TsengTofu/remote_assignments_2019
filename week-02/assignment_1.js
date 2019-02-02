@@ -11,13 +11,13 @@
 // }
 
 
-function max() {
+function max(...numbers) {
     // your code here, for-loop method preferred
-    var i, max = 0;
+    var i, numbers = 0;
     for (i = 0; i < arguments.length; i++) {
     	console.log(arguments[i]);
-        if (arguments[i] > max) { max = arguments[i]; } 
-        console.log("MAX:"+max);
+        if (arguments[i] > numbers) { numbers = arguments[i]; } 
+        console.log("MAX:"+numbers);
     }
     return max;
 }
@@ -47,6 +47,41 @@ calculate({ n1: 5, op: "+", n2: 8 });
 //op如果="+"就是加法運算，op如果="-"就是減法運算
 calculate({ n1: 7, op: "/", n2: 8 });
 calculate({ n1: 7, op: "-", n2: 8 });
+
+//way_2
+class NumberCalculate {
+  constructor(n1, n2, op,result) {
+    this.n1 = n1;
+    this.n2 = n2;
+    this.op = op;
+    this.result = result;
+  }
+  calculate() {
+    if (this.op === "+") {
+        this.result = this.n1 + this.n2;
+    } else if (this.op === "-") {
+        this.result = this.n1 - this.n2;
+    } else {
+        this.result = "Not supported";
+    }
+  }
+ 
+}
+var p = new NumberCalculate(8,5,"+");
+p.calculate();
+console.log(p.result);
+
+
+
+// const MyPoly = class Poly {
+//   getPolyName() {
+//     ChromeSamples.log('Hi. I was created with a Class expression. My name is ' +
+//       Poly.name);
+//   }
+// };
+
+// let inst = new MyPoly();
+// inst.getPolyName();
 
 
 
