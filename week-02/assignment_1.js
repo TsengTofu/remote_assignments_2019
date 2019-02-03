@@ -13,11 +13,11 @@
 
 function max(...numbers) {
     // your code here, for-loop method preferred
-    var i;
+    var i, max=-Infinity;
     for (i = 0; i < numbers.length; i++) {
-    	//console.log(numbers[i]);
-        if (numbers[i] > numbers[i+1]) { max = numbers[i]; } 
-        //console.log("MAX:"+numbers[i]);
+    	// console.log(arguments[i]);
+        if (numbers[i] > max) { max =numbers[i] ; } 
+        // console.log("MAX:"+numbers);
     }
     return max;
 }
