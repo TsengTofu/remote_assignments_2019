@@ -11,12 +11,13 @@
 // }
 
 
+
 function max(...numbers) {
     // your code here, for-loop method preferred
-    var i, max=-Infinity;
+    var i, max = -Infinity;
     for (i = 0; i < numbers.length; i++) {
-    	// console.log(arguments[i]);
-        if (numbers[i] > max) { max =numbers[i] ; } 
+        // console.log(arguments[i]);
+        if (numbers[i] > max) { max = numbers[i]; }
         // console.log("MAX:"+numbers);
     }
     return max;
@@ -25,7 +26,7 @@ function max(...numbers) {
 max(1, 2, 4, 5); // result to 5
 max(5, 2, 7, 1, 6); // result to 7
 
- 
+
 
 
 //assignment_02
@@ -50,24 +51,24 @@ calculate({ n1: 7, op: "-", n2: 8 });
 
 //way_2
 class NumberCalculate {
-  constructor(n1, n2, op,result) {
-    this.n1 = n1;
-    this.n2 = n2;
-    this.op = op;
-    this.result = result;
-  }
-  calculate() {
-    if (this.op === "+") {
-        this.result = this.n1 + this.n2;
-    } else if (this.op === "-") {
-        this.result = this.n1 - this.n2;
-    } else {
-        this.result = "Not supported";
+    constructor(n1, n2, op, result) {
+        this.n1 = n1;
+        this.n2 = n2;
+        this.op = op;
+        this.result = result;
     }
-  }
- 
+    calculate() {
+        if (this.op === "+") {
+            this.result = this.n1 + this.n2;
+        } else if (this.op === "-") {
+            this.result = this.n1 - this.n2;
+        } else {
+            this.result = "Not supported";
+        }
+    }
+
 }
-var p = new NumberCalculate(8,5,"+");
+var p = new NumberCalculate(8, 5, "+");
 p.calculate();
 console.log(p.result);
 

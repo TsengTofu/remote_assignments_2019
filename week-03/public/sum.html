@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            document.getElementById('ajax').innerHTML = xhr.responseText;
+        }
+
+    };
+    xhr.open('GET', 'http://localhost:3000/getData?number=10');
+
+    function sendAJAX() {
+        xhr.send();
+        document.getElementById('load').style.display = 'none';
+    }
+    </script>
+</head>
+
+<body>
+    <p>Hello</p>
+    <button id="load" onclick="sendAJAX()">Just give it a try</button>
+    <div id="ajax"></div>
+</body>
+
+</html>
