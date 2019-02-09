@@ -1,17 +1,18 @@
 // Assignment 1: Callback Function
-function delayedResult(n1, n2, delayTime, callback) {
-    window.setTimeout(function() {
-        var result = n1 + n2;
-        callback(result)
-    }, delayTime);
+function delayedResult(n1, n2, delayTime, callback){
+  window.setTimeout(function(){
+    var result = n1 + n2;
+    callback(result)
+  },delayTime);
 }
-delayedResult(4, 5, 3000, function(result) {
-    console.log(result);
+delayedResult(4, 5, 3000, function(result){
+// console.log(result);
+  document.getElementById('result2').textContent = result;
+}); // 9 (4+5) will be shown in the console after 3 seconds
+delayedResult(-5, 10, 2000, function(result){
+// window.alert(result);
+  document.getElementById('result3').textContent = result;
 });
-delayedResult(-5, 10, 2000, function(result) {
-    window.alert(result);
-});
-
 
 
 // Assignment 2: Callback Function and Advanced HTML DOM
