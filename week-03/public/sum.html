@@ -22,18 +22,17 @@
 
 
     $(document).ready(function() {
-    $('form').submit(function(evt) {
-      evt.preventDefault();
-      var inputNum =$("#inputNum").val();
-      console.log(inputNum);
+        $('form').submit(function(evt) {
+            evt.preventDefault();
+            var inputNum = $("#inputNum").val();
+            var url = $(this).attr("action") + inputNum;
+            var data = $(this).serialize();
+            xhr.open('GET', url);
+            xhr.send();
 
-      // var url = $(this).attr("action")+inputNum;
-      // // var data = $(this).serialize();
-      // $.get(url,function(response) {
-      //   $('#ajax').html("<p>Thanks for signing up!</p>")
-      // });
-    }); 
-  });
+
+        });
+    });
     </script>
 </head>
 
@@ -41,7 +40,7 @@
     <!-- <p>Hello</p>
     <button id="load" onclick="sendAJAX()">Just give it a try</button> -->
     <div id="ajax"></div>
-    <form action="/getData?number=`${inputNum}`" method="get">
+    <form action="http://localhost:3000/getData?number=" method="post">
         <label>Please Enter a number:
             <input type="text" name="inputNum" id="inputNum" />
         </label>
