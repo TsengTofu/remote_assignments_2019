@@ -26,12 +26,12 @@
       evt.preventDefault();
       var inputNum =$("#inputNum").val();
       console.log(inputNum);
-      var url = $(this).attr("action")+inputNum;
-      var data = $(this).serialize();
-       console.log(data);
-      $.post(url,data,function(response) {
-        $('#ajax').html("<p>Thanks for signing up!</p>")
-      });
+
+      // var url = $(this).attr("action")+inputNum;
+      // // var data = $(this).serialize();
+      // $.get(url,function(response) {
+      //   $('#ajax').html("<p>Thanks for signing up!</p>")
+      // });
     }); 
   });
     </script>
@@ -41,12 +41,12 @@
     <!-- <p>Hello</p>
     <button id="load" onclick="sendAJAX()">Just give it a try</button> -->
     <div id="ajax"></div>
-    <form action="/getData?number=" method="post">
+    <form action="/getData?number=`${inputNum}`" method="get">
         <label>Please Enter a number:
             <input type="text" name="inputNum" id="inputNum" />
         </label>
         <button type="submit" id="submit">Submit</button>
-    </form>    
+    </form>
 </body>
 
 </html>
