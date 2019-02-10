@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script type="text/javascript">
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -12,19 +13,40 @@
         }
 
     };
-    xhr.open('GET', 'http://localhost:3000/getData?number=10');
+    xhr.open('GET', '/getData');
+    xhr.send();
+    // function sendAJAX() {
+    //     xhr.send();
+    //     document.getElementById('load').style.display = 'none';
+    // }
 
-    function sendAJAX() {
-        xhr.send();
-        document.getElementById('load').style.display = 'none';
-    }
+
+    $(document).ready(function() {
+    $('form').submit(function(evt) {
+      evt.preventDefault();
+      var inputNum =$("#inputNum").val();
+      console.log(inputNum);
+      var url = $(this).attr("action")+inputNum;
+      var data = $(this).serialize();
+       console.log(data);
+      $.post(url,data,function(response) {
+        $('#ajax').html("<p>Thanks for signing up!</p>")
+      });
+    }); 
+  });
     </script>
 </head>
 
 <body>
-    <p>Hello</p>
-    <button id="load" onclick="sendAJAX()">Just give it a try</button>
+    <!-- <p>Hello</p>
+    <button id="load" onclick="sendAJAX()">Just give it a try</button> -->
     <div id="ajax"></div>
+    <form action="/getData?number=" method="post">
+        <label>Please Enter a number:
+            <input type="text" name="inputNum" id="inputNum" />
+        </label>
+        <button type="submit" id="submit">Submit</button>
+    </form>    
 </body>
 
 </html>

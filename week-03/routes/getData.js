@@ -3,7 +3,6 @@ var router = express.Router();
 
 
 router.get("/", (req, res) => {
-    // var xyz = req.param.xyz;
     var number = req.query.number;
     var N = Number(number);
     var result = total(N);
@@ -27,6 +26,12 @@ router.get("/", (req, res) => {
         res.send("<h1>Wrong Parameter</h1>");
     } else return res.render("getData.pug",{ hint })
 
+})
+
+
+router.post("/getData", (req, res) => {
+    console.dir(req.body);
+    res.render("getData.pug", { hint: "Lack of Parameter" });
 })
 
 
@@ -60,10 +65,6 @@ router.get("/", (req, res) => {
 
 
 
-router.post("/getData", (req, res) => {
-    console.dir(req.body);
-    res.render("getData.pug", { hint: "Lack of Parameter" });
-})
 
 
 
