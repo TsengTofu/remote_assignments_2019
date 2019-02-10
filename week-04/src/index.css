@@ -1,0 +1,281 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.wrapper {
+    margin: 0 auto;
+    font-family: "微軟正黑體";
+}
+
+.wrapper a:link {
+    text-decoration: none;
+    color: #000;
+}
+
+.header {
+    background-color: #eee;
+    padding: 20px;
+    /*position: relative;*/
+}
+
+.menu-toggle {
+    display: block;
+    width: 40px;
+    height: 25px;
+    position: absolute;
+    top: 2%;
+    right: 6%;
+    /*cursor: pointer;*/
+    display: none;
+    z-index: 9999;
+}
+
+.menu-toggle:before,
+.menu-toggle:after {
+    content: '';
+    /*這個一定要加*/
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: #303030;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.menu-toggle:before {
+    position: absolute;
+    top: 0px;
+}
+
+.menu-toggle:after {
+    position: absolute;
+    top: 20px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: #303030;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+/*hover效果*/
+
+.menu-toggle.on::before {
+    -moz-transform: rotate(45deg) translate(7px, 7px);
+    -ms-transform: rotate(45deg) translate(7px, 7px);
+    -webkit-transform: rotate(45deg) translate(7px, 7px);
+    transform: rotate(45deg) translate(7px, 7px);
+    /*translate不知道怎判斷*/
+    background: #ffffff;
+}
+
+
+.menu-toggle.on span {
+    /*opacity: 0;不知道這有甚麼差別*/
+    display: none;
+}
+
+
+.menu-toggle.on::after {
+    -moz-transform: rotate(-45deg) translate(8px, -7px);
+    -ms-transform: rotate(-45deg) translate(8px, -7px);
+    -webkit-transform: rotate(-45deg) translate(8px, -7px);
+    transform: rotate(-45deg) translate(8px, -7px);
+    background: #ffffff;
+}
+
+
+
+
+
+.header .logo {
+    float: left;
+}
+
+.header .nav {
+    float: right;
+    width: 30%;
+}
+
+.header .nav li {
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*--------header--------*/
+
+.content {
+    text-align: center;
+}
+
+.content .welcome_message {
+    background-color: #cdddee;
+    padding: 100px;
+}
+
+.content .welcome_message h1 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.content .vice_title {
+    font-weight: bold;
+    font-size: 25px;
+    margin: 40px auto;
+}
+
+.content .box {
+    max-width: 1200px;
+    margin: 45px auto;
+}
+
+.content .box li {
+    float: left;
+    width: 48%;
+    padding: 100px 50px;
+    margin: 12px;
+    background-color: #eee;
+    box-sizing: border-box;
+}
+
+.content .button {
+    display: block;
+    width: 150px;
+    padding: 10px;
+    margin: 25px auto;
+    background-color: #cdddee;
+}
+
+.hide {
+    display: none;
+}
+
+/*RWD*/
+@media screen and (max-width: 1200px) {
+    .content .box li {
+        width: 47%;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+
+
+    .content .box li {
+        width: 45%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    .hidden {
+        display: none;
+    }
+
+    .header{
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header .nav.on {
+        z-index: 999;
+        width: 50%;
+        height: 100%;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.85);
+        position: fixed;
+        right: 0;
+        top:0;
+    }
+
+    .header .nav{
+        padding-top: 100px;
+    }
+
+    .header .nav li a:link, .header .nav li a:visited {
+        color: #fff;
+    }
+
+    .header .nav li {
+        display: block;
+        float: none;
+        width: 100%;
+        font-size: 10vw;
+        padding: 4%;
+        box-sizing: border-box;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .content .box li {
+        float: none;
+        width: 90%;
+        margin: 10px auto;
+    }
+}
